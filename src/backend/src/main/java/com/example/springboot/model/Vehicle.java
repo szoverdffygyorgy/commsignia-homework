@@ -3,6 +3,8 @@ package com.example.springboot.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "vehicle")
 public class Vehicle {
@@ -19,6 +21,10 @@ public class Vehicle {
     @JsonProperty(value = "Longitude")
     @Column(name = "longitude", nullable = false )
     float longitude;
+
+    @JsonProperty(value = "Notifications")
+    @OneToMany(mappedBy = "vehicle")
+    List<Notification> notifications;
 
     public int getId() {return id;}
 
