@@ -26,11 +26,11 @@ public class Vehicle {
     @OneToMany(mappedBy = "vehicle")
     List<Notification> notifications;
 
-    public int getId() {return id;}
+    public int getId() { return id; }
 
-    public void setId(int id) {this.id = id;}
+    public void setId(int id) { this.id = id; }
 
-    public float getLatitude() {return latitude;}
+    public float getLatitude() { return latitude; }
 
     public void setLatitude(float latitude) {
         this.latitude = latitude;
