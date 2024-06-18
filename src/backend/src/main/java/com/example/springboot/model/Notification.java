@@ -10,7 +10,7 @@ public class Notification {
     @JsonProperty(value = "Id")
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    Long id;
 
     @JsonProperty(value = "Vehicle")
     @ManyToOne()
@@ -21,11 +21,16 @@ public class Notification {
     @Column(name = "message", nullable = false)
     String message;
 
-    public int getId() {
+    public Notification(Vehicle vehicle, String message) {
+        this.vehicle = vehicle;
+        this.message = message;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -1,6 +1,6 @@
 package com.example.springboot.controller;
 
-import com.example.springboot.dto.IdDto;
+import com.example.springboot.dto.RegisterVehicleResponseDto;
 import com.example.springboot.model.Vehicle;
 import com.example.springboot.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +18,10 @@ public class VehicleController {
         this.vehicleService = vehicleService;
     }
 
-    @PostMapping("/")
-    public IdDto registerVehicle() {
+    @PostMapping
+    public RegisterVehicleResponseDto registerVehicle() {
         Vehicle registeredVehicle = this.vehicleService.registerVehicle();
 
-        return new IdDto(registeredVehicle.getId());
+        return new RegisterVehicleResponseDto(registeredVehicle.getId());
     }
 }

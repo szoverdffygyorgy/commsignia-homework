@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface VehicleRepository extends JpaRepository<Vehicle, Integer> {
+public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
     // Vehicle updatePosition(Integer id, float latitude, float longitude);
     // List<Vehicle> findAroundCoordinate(float latitude, float longitude, float radius);
 }
