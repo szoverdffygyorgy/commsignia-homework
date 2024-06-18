@@ -22,7 +22,7 @@ public class NotificationController {
     }
 
     @PostMapping
-    public void createNotification(@RequestBody CreateNotificationRequestDto notification) throws VehicleNotFoundException {
+    public void createNotification(@RequestBody CreateNotificationRequestDto notification) {
         try {
             this.notificationService.createNotification(notification);
         } catch (VehicleNotFoundException e) {
