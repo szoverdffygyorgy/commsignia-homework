@@ -12,7 +12,7 @@ public class Vehicle {
     @JsonProperty(value = "Id")
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    Long id;
 
     @JsonProperty(value = "Latitude")
     @Column(name = "latitude", nullable = false )
@@ -26,9 +26,9 @@ public class Vehicle {
     @OneToMany(mappedBy = "vehicle")
     List<Notification> notifications;
 
-    public int getId() { return id; }
+    public Long getId() { return id; }
 
-    public void setId(int id) { this.id = id; }
+    public void setId(Long id) { this.id = id; }
 
     public float getLatitude() { return latitude; }
 
