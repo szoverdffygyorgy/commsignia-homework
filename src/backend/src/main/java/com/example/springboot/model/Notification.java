@@ -21,6 +21,8 @@ public class Notification {
     @Column(name = "message", nullable = false)
     String message;
 
+    public Notification() {}
+
     public Notification(Vehicle vehicle, String message) {
         this.vehicle = vehicle;
         this.message = message;

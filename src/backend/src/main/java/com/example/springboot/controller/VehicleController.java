@@ -1,5 +1,6 @@
 package com.example.springboot.controller;
 
+import com.example.springboot.dto.GetVehiclesWithinRangeDto;
 import com.example.springboot.dto.RegisterVehicleResponseDto;
 import com.example.springboot.dto.UpdateVehiclePositionDto;
 import com.example.springboot.exceptions.VehicleNotFoundException;
@@ -24,8 +25,8 @@ public class VehicleController {
 
     @GetMapping
     @ResponseBody
-    public List<Vehicle> getVehiclesWithinRange(@RequestParam float latitude, @RequestParam float longitude, @RequestParam float radius) {
-        return this.vehicleService.getVehiclesWithinRange(latitude, longitude, radius);
+    public GetVehiclesWithinRangeDto getVehiclesWithinRange(@RequestParam float latitude, @RequestParam float longitude, @RequestParam float radius) {
+        return new GetVehiclesWithinRangeDto(this.vehicleService.getVehiclesWithinRange(latitude, longitude, radius));
     }
 
     @PostMapping
@@ -36,7 +37,7 @@ public class VehicleController {
         return new RegisterVehicleResponseDto(registeredVehicle.getId());
     }
 
-    @PutMapping("/{vehicleId}")
+    @PostMapping("/{vehicleId}")
     public void updateVehiclePosition(@RequestBody UpdateVehiclePositionDto position, @PathVariable Long vehicleId) {
         try {
             this.vehicleService.updateVehiclePosition(vehicleId, position.getLatitude(), position.getLongitude());
