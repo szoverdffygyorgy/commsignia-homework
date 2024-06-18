@@ -1,8 +1,8 @@
 package com.example.springboot.dto;
 
 public class CreateNotificationRequestDto {
-    public Long vehicle_id;
-    public String message;
+    private Long vehicle_id;
+    private String message;
 
     public String getMessage() {
         return message;
@@ -12,7 +12,7 @@ public class CreateNotificationRequestDto {
         this.message = message;
     }
 
-    public Long getVehicle_id() {
+    public Long getVehicleId() {
         return vehicle_id;
     }
 

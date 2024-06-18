@@ -23,10 +23,10 @@ public class NotificationService {
     }
 
     public void createNotification(CreateNotificationRequestDto notification) throws VehicleNotFoundException {
-        Optional<Vehicle> vehicle = vehicleRepository.findById(notification.vehicle_id);
+        Optional<Vehicle> vehicle = vehicleRepository.findById(notification.getVehicleId());
 
         if (vehicle.isEmpty()) {
-            throw new VehicleNotFoundException();
+            throw new VehicleNotFoundException(notification.getVehicleId());
         }
 
         this.notificationRepository.save(new Notification(vehicle.get(), notification.getMessage()));
