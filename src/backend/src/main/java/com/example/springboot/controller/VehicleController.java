@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/vehicles")
 public class VehicleController {
@@ -18,6 +20,12 @@ public class VehicleController {
     @Autowired
     public VehicleController(final VehicleService vehicleService) {
         this.vehicleService = vehicleService;
+    }
+
+    @GetMapping
+    @ResponseBody
+    public List<Vehicle> getVehiclesWithinRange(@RequestParam float latitude, @RequestParam float longitude, @RequestParam float radius) {
+        return this.vehicleService.getVehiclesWithinRange(latitude, longitude, radius);
     }
 
     @PostMapping
