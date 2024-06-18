@@ -6,6 +6,8 @@ import com.example.springboot.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class VehicleService {
     private final VehicleRepository vehicleRepository;
@@ -21,5 +23,9 @@ public class VehicleService {
 
     public void updateVehiclePosition(Long vehicleId, float latitude, float longitude) throws VehicleNotFoundException {
         this.vehicleRepository.updatePosition(vehicleId, latitude, longitude);
+    }
+
+    public List<Vehicle> getVehiclesWithinRange(float latitude, float longitude, float radius) {
+        return this.vehicleRepository.findVehicleInSphere(latitude, longitude, radius);
     }
 }
