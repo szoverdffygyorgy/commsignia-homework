@@ -22,7 +22,6 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
 	runtimeOnly 'org.postgresql:postgresql'
 	// end::tests[]
-	implementation 'org.springframework:spring-aspects:6.1.8'
 }
 
 test {
