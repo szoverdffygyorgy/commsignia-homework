@@ -25,6 +25,10 @@ public class VehicleService {
         this.vehicleRepository.updatePosition(vehicleId, latitude, longitude);
     }
 
+    public List<Vehicle> getVehicles() {
+        return this.vehicleRepository.findAll();
+    }
+
     public List<Vehicle> getVehiclesWithinRange(float latitude, float longitude, float radius) {
         return this.vehicleRepository.findVehicleInSphere(latitude, longitude, radius);
     }

@@ -3,29 +3,35 @@ package com.example.springboot.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
+import java.time.Instant;
+
 @Entity()
 @Table(name = "notification")
 public class Notification {
     @Id
-    @JsonProperty(value = "Id")
+    @JsonProperty(value = "id")
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    @JsonProperty(value = "Vehicle")
-    @ManyToOne()
-    @JoinColumn(name = "vehicle_id")
-    Vehicle vehicle;
+    @JsonProperty(value = "vehicleId")
+    @Column(name = "vehicle_id", nullable = false)
+    private Long vehicleId;
 
-    @JsonProperty(value = "Message")
+    @JsonProperty(value = "message")
     @Column(name = "message", nullable = false)
-    String message;
+    private String message;
+
+    @JsonProperty(value = "createdAt")
+    @Column(name = "created_at", nullable = false)
+    private Instant createdAt;
 
     public Notification() {}
 
-    public Notification(Vehicle vehicle, String message) {
-        this.vehicle = vehicle;
+    public Notification(Long vehicleId, String message) {
+        this.vehicleId = vehicleId;
         this.message = message;
+        this.createdAt = Instant.now();
     }
 
     public Long getId() {
@@ -36,19 +42,23 @@ public class Notification {
         this.id = id;
     }
 
-    public Vehicle getVehicle() {
-        return vehicle;
+    public Long getVehicleId() {
+        return vehicleId;
     }
 
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
+    public void setVehicleId(Long vehicleId) {
+        this.vehicleId = vehicleId;
+    }
+
+    public String getMessage() {
+        return message;
     }
 
     public void setMessage(String message) {
         this.message = message;
     }
 
-    public String getMessage() {
-        return message;
+    public Instant getCreatedAt() {
+        return createdAt;
     }
 }

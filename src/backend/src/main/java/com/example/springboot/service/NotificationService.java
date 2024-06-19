@@ -29,7 +29,7 @@ public class NotificationService {
             throw new VehicleNotFoundException(notification.getVehicleId());
         }
 
-        this.notificationRepository.save(new Notification(vehicle.get(), notification.getMessage()));
+        this.notificationRepository.save(new Notification(vehicle.get().getId(), notification.getMessage()));
     }
 
 }
