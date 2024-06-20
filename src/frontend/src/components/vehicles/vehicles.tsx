@@ -1,19 +1,11 @@
-import { useQuery } from "@tanstack/react-query";
-import getVehicles from "../../api/get-vehicles";
+import { useVehicleContext } from "../../contexts/vehicle/vehicle-context";
 
 const Vehicles = () => {
-  const query = useQuery({
-    queryKey: ["vehicles"],
-    queryFn: () => getVehicles(),
-  });
+  const { query, refetchVehicles } = useVehicleContext();
 
-  console.log(query.data);
+  console.log({ data: query?.data });
 
-  if (!query.isFetched) {
-    return "Loading...";
-  }
-
-  return <>{`${query.data.vehicles}`}</>;
+  return null;
 };
 
 export default Vehicles;

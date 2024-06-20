@@ -1,11 +1,14 @@
 import QueryProvider from "./components/query-provider/query-provider";
 import Vehicles from "./components/vehicles/vehicles";
+import VehicleProvider from "./contexts/vehicle/vehicle-provider";
 
 const App = () => {
   return (
     <>
       <QueryProvider>
-        <Vehicles />
+        <VehicleProvider>
+          <Vehicles />
+        </VehicleProvider>
       </QueryProvider>
     </>
   );
