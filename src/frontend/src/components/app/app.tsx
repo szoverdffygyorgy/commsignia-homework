@@ -1,6 +1,5 @@
-import VehicleProvider from "../../contexts/vehicle/vehicle-provider";
+import Router from "../../routes/router";
 import QueryProvider from "../query-provider/query-provider";
-import Vehicles from "../vehicles/vehicles";
 
 import "./app.css";
 
@@ -8,9 +7,7 @@ const App = () => {
   return (
     <>
       <QueryProvider>
-        <VehicleProvider>
-          <Vehicles />
-        </VehicleProvider>
+        <Router />
       </QueryProvider>
     </>
   );

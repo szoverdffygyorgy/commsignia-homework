@@ -4,8 +4,6 @@ import VehicleList from "../vehicle-list/vehicle-list";
 const Vehicles = () => {
   const { query } = useVehicleContext();
 
-  console.log({ data: query?.data });
-
   return query?.isLoading ? (
     "Loading vehicles..."
   ) : query?.data ? (
