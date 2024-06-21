@@ -23,7 +23,3 @@
   inline-size: 24px;
   cursor: pointer;
 }
-
-.vehicle-list-item .navigate-icon svg {
-  fill: var(--theme-secondary) !important;
-}
