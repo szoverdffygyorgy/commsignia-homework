@@ -1,4 +1,4 @@
-import Vehicles from "../../components/vehicles/vehicles";
+import Vehicles from "./components/vehicles/vehicles";
 import VehicleProvider from "../../contexts/vehicle/vehicle-provider";
 
 const VehiclesPage = () => {

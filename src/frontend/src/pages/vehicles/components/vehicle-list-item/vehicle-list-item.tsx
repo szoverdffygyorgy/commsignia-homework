@@ -1,5 +1,5 @@
-import VehicleDto from "../../api/dto/vehicle-dto";
-import navigateIcon from "../../assets/navigate.svg";
+import VehicleDto from "../../../../api/dto/vehicle-dto";
+import navigateIcon from "../../../../assets/navigate.svg";
 
 import "./vehicle-list-item.css";
 

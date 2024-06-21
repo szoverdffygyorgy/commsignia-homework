@@ -1,5 +1,5 @@
-import VehicleDto from "../../api/dto/vehicle-dto";
-import { useVehicleContext } from "../../contexts/vehicle/vehicle-context";
+import VehicleDto from "../../../../api/dto/vehicle-dto";
+import { useVehicleContext } from "../../../../contexts/vehicle/vehicle-context";
 import VehicleListItem from "../vehicle-list-item/vehicle-list-item";
 
 import "./vehicle-list.css";
