@@ -1,0 +1,9 @@
+.vehicle-list .list-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.vehicle-list > .header {
+  color: var(--theme-quaternary);
+}
