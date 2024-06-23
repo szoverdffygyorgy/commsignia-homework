@@ -10,10 +10,12 @@ type VehicleLocationLinkProps = {
 };
 
 const VehicleLocationLink = ({ vehicle }: VehicleLocationLinkProps) => {
+  // Check if we're on a details page
   const { id } = useParams();
 
   const mapsUrl = `https://google.com/maps/search/?api=1&query=${vehicle.latitude},${vehicle.longitude}`;
 
+  // The link has different color depending on what page it's shown on
   const className = id ? "quaternary" : "secondary";
 
   return (
