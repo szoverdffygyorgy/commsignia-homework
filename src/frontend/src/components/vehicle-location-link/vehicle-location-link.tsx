@@ -19,11 +19,13 @@ const VehicleLocationLink = ({ vehicle }: VehicleLocationLinkProps) => {
   const className = id ? "quaternary" : "secondary";
 
   return (
-    <a href={mapsUrl} target="_blank" referrerPolicy="no-referrer">
-      <NavigateIcon
-        className={`navigate-icon ${className}`}
-        title="View vehicle location"
-      />
+    <a
+      href={mapsUrl}
+      target="_blank"
+      referrerPolicy="no-referrer"
+      title="View vehicle location"
+    >
+      <NavigateIcon className={`navigate-icon ${className}`} />
     </a>
   );
 };
