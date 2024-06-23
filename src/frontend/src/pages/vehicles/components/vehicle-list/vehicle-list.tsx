@@ -1,16 +1,13 @@
-import VehicleDto from "../../../../api/dto/vehicle-dto";
-import { useVehicleContext } from "../../../../contexts/vehicle/vehicle-context";
+import VehicleListItemDto from "../../../../api/dto/vehicle-list-item-dto";
 import VehicleListItem from "../vehicle-list-item/vehicle-list-item";
 
 import "./vehicle-list.css";
 
 type VehicleListProps = {
-  vehicles: VehicleDto[];
+  vehicles: VehicleListItemDto[];
 };
 
 const VehicleList = ({ vehicles }: VehicleListProps) => {
-  const { refetchVehicles } = useVehicleContext();
-
   return (
     <div className="vehicle-list">
       <h2 className="header">Vehicles</h2>

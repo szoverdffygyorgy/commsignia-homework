@@ -4,13 +4,15 @@ import VehicleList from "../vehicle-list/vehicle-list";
 const Vehicles = () => {
   const { query } = useVehicleContext();
 
-  return query?.isLoading ? (
-    "Loading vehicles..."
-  ) : query?.data ? (
-    <VehicleList vehicles={query.data.vehicles} />
-  ) : (
-    "Failed to load vehicles."
-  );
+  if (query?.isLoading) {
+    return "Loading vehicles...";
+  }
+
+  if (!query?.data) {
+    return "Failed to load vehicles.";
+  }
+
+  return <VehicleList vehicles={query.data.vehicles} />;
 };
 
 export default Vehicles;

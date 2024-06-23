@@ -1,6 +1,6 @@
 import { Navigate, Outlet, RouteObject } from "react-router-dom";
 import VehiclesPage from "../pages/vehicles/vehicles-page";
-import VehicleDetails from "../pages/vehicle-details/vehicle-details";
+import VehicleDetailsPage from "../pages/vehicle-details/vehicle-details-page";
 
 export const Route = {
   INDEX: "/",
@@ -21,7 +21,7 @@ export const ROUTES: RouteObject[] = [
           { index: true, element: <VehiclesPage /> },
           {
             path: Route.VEHICLES.BY_ID,
-            element: <VehicleDetails />,
+            element: <VehicleDetailsPage />,
           },
         ],
       },

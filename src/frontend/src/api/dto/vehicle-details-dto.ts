@@ -1,6 +1,6 @@
 import NotificationDto from "./notification-dto";
 
-type VehicleDto = {
+type VehicleDetailsDto = {
   id: string;
   latitude: number;
   longitude: number;
@@ -8,4 +8,4 @@ type VehicleDto = {
   createdAt: string;
 };
 
-export default VehicleDto;
+export default VehicleDetailsDto;

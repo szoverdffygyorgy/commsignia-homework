@@ -17,9 +17,3 @@
   gap: 16px;
   align-items: center;
 }
-
-.vehicle-list-item .navigate-icon {
-  block-size: 24px;
-  inline-size: 24px;
-  cursor: pointer;
-}
