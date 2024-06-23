@@ -1,0 +1,15 @@
+.notification-list .show-more-button {
+  margin-block-start: 16px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: 1px solid var(--theme-quaternary);
+  color: var(--theme-quaternary);
+  outline: none;
+  background-color: var(--theme-primary);
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.notification-list .show-more-button:hover {
+  background-color: var(--theme-secondary);
+}
