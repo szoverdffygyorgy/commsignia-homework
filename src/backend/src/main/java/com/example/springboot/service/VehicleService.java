@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class VehicleService {
@@ -22,11 +23,27 @@ public class VehicleService {
     }
 
     public void updateVehiclePosition(Long vehicleId, float latitude, float longitude) throws VehicleNotFoundException {
-        this.vehicleRepository.updatePosition(vehicleId, latitude, longitude);
+        Optional<Vehicle> vehicle = this.vehicleRepository.findById(vehicleId);
+
+        if (vehicle.isEmpty()) {
+            throw new VehicleNotFoundException(vehicleId);
+        }
+
+        this.vehicleRepository.updatePosition(vehicle.get(), latitude, longitude);
     }
 
     public List<Vehicle> getVehicles() {
         return this.vehicleRepository.findAll();
+    }
+
+    public Vehicle getVehicleById(Long vehicleId) throws VehicleNotFoundException {
+        Optional<Vehicle> vehicle = this.vehicleRepository.findById(vehicleId);
+
+        if (vehicle.isEmpty()) {
+            throw new VehicleNotFoundException(vehicleId);
+        }
+
+        return vehicle.get();
     }
 
     public List<Vehicle> getVehiclesWithinRange(float latitude, float longitude, float radius) {
