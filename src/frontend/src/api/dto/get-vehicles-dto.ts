@@ -1,7 +1,7 @@
-import VehicleDto from "./vehicle-dto";
+import VehicleListItemDto from "./vehicle-list-item-dto";
 
 type GetVehiclesDto = {
-  vehicles: VehicleDto[];
+  vehicles: VehicleListItemDto[];
 };
 
 export default GetVehiclesDto;
