@@ -4,6 +4,7 @@ import com.example.springboot.exceptions.VehicleNotFoundException;
 import com.example.springboot.model.Vehicle;
 import com.example.springboot.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,7 +34,7 @@ public class VehicleService {
     }
 
     public List<Vehicle> getVehicles() {
-        return this.vehicleRepository.findAll();
+        return this.vehicleRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
     }
 
     public Vehicle getVehicleById(Long vehicleId) throws VehicleNotFoundException {
