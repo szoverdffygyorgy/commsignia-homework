@@ -1,8 +1,6 @@
 package com.example.springboot.controller;
 
-import com.example.springboot.dto.GetVehiclesWithinRangeDto;
-import com.example.springboot.dto.RegisterVehicleResponseDto;
-import com.example.springboot.dto.UpdateVehiclePositionDto;
+import com.example.springboot.dto.*;
 import com.example.springboot.exceptions.GetVehiclesQueryParamException;
 import com.example.springboot.exceptions.VehicleNotFoundException;
 import com.example.springboot.model.Vehicle;
@@ -42,10 +40,10 @@ public class VehicleController {
             }
 
             if (numOfQueryParams == 0) {
-                return new GetVehiclesWithinRangeDto(this.vehicleService.getVehicles());
+                return new GetVehiclesWithinRangeDto(this.vehicleService.getVehicles().stream().map(VehicleListItemDto::new).toList());
             }
 
-            return new GetVehiclesWithinRangeDto(this.vehicleService.getVehiclesWithinRange(latitude.get(), longitude.get(), radius.get()));
+            return new GetVehiclesWithinRangeDto(this.vehicleService.getVehiclesWithinRange(latitude.get(), longitude.get(), radius.get()).stream().map(VehicleListItemDto::new).toList());
         } catch (GetVehiclesQueryParamException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
         }
@@ -59,12 +57,24 @@ public class VehicleController {
         return new RegisterVehicleResponseDto(registeredVehicle.getId());
     }
 
+    @GetMapping("/{vehicleId}")
+    @ResponseBody
+    public VehicleWithNotificationsDto getVehicleById(@PathVariable Long vehicleId) {
+        try {
+            Vehicle vehicle = this.vehicleService.getVehicleById(vehicleId);
+
+            return new VehicleWithNotificationsDto(vehicle);
+        } catch (VehicleNotFoundException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
+        }
+    }
+
     @PostMapping("/{vehicleId}")
     public void updateVehiclePosition(@RequestBody UpdateVehiclePositionDto position, @PathVariable Long vehicleId) {
         try {
             this.vehicleService.updateVehiclePosition(vehicleId, position.getLatitude(), position.getLongitude());
         } catch (VehicleNotFoundException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
         }
     }
 }

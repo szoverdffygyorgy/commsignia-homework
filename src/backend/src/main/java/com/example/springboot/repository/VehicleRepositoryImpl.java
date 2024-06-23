@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public class VehicleRepositoryImpl implements VehicleRepositoryCustom {
@@ -22,14 +21,7 @@ public class VehicleRepositoryImpl implements VehicleRepositoryCustom {
     }
 
     @Override
-    public void updatePosition(Long id, float latitude, float longitude) throws VehicleNotFoundException {
-        Optional<Vehicle> vehicleToUpdate = vehicleRepository.findById(id);
-
-        if (vehicleToUpdate.isEmpty()) {
-            throw new VehicleNotFoundException(id);
-        }
-
-        Vehicle vehicle = vehicleToUpdate.get();
+    public void updatePosition(Vehicle vehicle, float latitude, float longitude) {
         vehicle.setLatitude(latitude);
         vehicle.setLongitude(longitude);
 
