@@ -3,6 +3,8 @@ package com.example.springboot.service;
 import com.example.springboot.exceptions.VehicleNotFoundException;
 import com.example.springboot.model.Vehicle;
 import com.example.springboot.repository.VehicleRepository;
+import com.example.springboot.util.GeoDistanceCalculator;
+import com.example.springboot.util.Point;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -48,6 +50,13 @@ public class VehicleService {
     }
 
     public List<Vehicle> getVehiclesWithinRange(float latitude, float longitude, float radius) {
-        return this.vehicleRepository.findVehicleInSphere(latitude, longitude, radius);
+        List<Vehicle> vehicles = this.vehicleRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
+
+        return vehicles.stream().filter(vehicle -> {
+            Point vehicleLocation = new Point(vehicle.getLatitude(), vehicle.getLongitude());
+            Point referencePoint = new Point(latitude, longitude);
+
+            return GeoDistanceCalculator.calculateDistanceOfPoints(referencePoint, vehicleLocation) <= radius;
+        }).toList();
     }
 }

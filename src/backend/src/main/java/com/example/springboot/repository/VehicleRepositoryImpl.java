@@ -27,14 +27,4 @@ public class VehicleRepositoryImpl implements VehicleRepositoryCustom {
 
         vehicleRepository.save(vehicle);
     }
-
-    @Override
-    public List<Vehicle> findVehicleInSphere(float latitude, float longitude, float radius) {
-        return vehicleRepository.findAll().stream().filter(vehicle -> {
-            Point vehicleLocation = new Point(vehicle.getLatitude(), vehicle.getLongitude());
-            Point referencePoint = new Point(latitude, longitude);
-
-            return GeoDistanceCalculator.calculateDistanceOfPoints(referencePoint, vehicleLocation) <= radius;
-        }).toList();
-    }
 }
