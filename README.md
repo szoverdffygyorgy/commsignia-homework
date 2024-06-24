@@ -8,7 +8,7 @@ I installed IntelliJ IDEA and took care of everything building and running relat
 
 The app should run on default config, which is http://localhost:8080.
 
-Note: Instead of '/vehicle/:id' I took the liberty to have '/vehicles/:id' endpoint for the python script.
+Note: Instead of `/vehicle/:id` I took the liberty to have `/vehicles/:id` endpoint for the python script.
 The reason being this approach satisfies REST API design principles better in my opinion. (This means one less controller as well.)
 
 Minor inconvenience I noticed is that the backend uses 6371km as Earht's average radius, however, the python script has 6373km configured.
@@ -17,7 +17,7 @@ Minor inconvenience I noticed is that the backend uses 6371km as Earht's average
 
 The frontend is a React app served by Vite.
 
-To run the application navigate to /apps/frontend and run 'npm install'.
+To run the application navigate to `/apps/frontend` and run `npm install`.
 The app should run on the default config, which is http://localhost:5173.
 
 ## Additional info
