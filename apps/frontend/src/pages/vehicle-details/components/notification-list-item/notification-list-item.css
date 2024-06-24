@@ -1,0 +1,8 @@
+.notification-list-item {
+  display: flex;
+  gap: 16px;
+}
+
+.notification-list-item:not(:last-child) {
+  padding: 8px 0;
+}

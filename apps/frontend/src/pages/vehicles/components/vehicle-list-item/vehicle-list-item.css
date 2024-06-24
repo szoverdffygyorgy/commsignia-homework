@@ -1,0 +1,19 @@
+.vehicle-list-item {
+  inline-size: 240px;
+  padding: 16px 24px;
+  border-radius: 5px;
+  background-color: var(--theme-quaternary);
+  color: var(--theme-secondary);
+  transition: 0.3s filter ease-in-out;
+  cursor: pointer;
+}
+
+.vehicle-list-item:hover {
+  filter: brightness(120%);
+}
+
+.vehicle-list-item .location-wrapper {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
