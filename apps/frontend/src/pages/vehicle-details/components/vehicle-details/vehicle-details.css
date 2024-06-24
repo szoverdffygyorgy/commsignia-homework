@@ -1,0 +1,19 @@
+.vehicle-details {
+  color: var(--theme-quaternary);
+}
+
+.vehicle-details .content {
+  display: flex;
+  gap: 48px;
+}
+
+.vehicle-details .content .map {
+  flex: 1 1 auto;
+  max-height: 480px;
+}
+
+.vehicle-details .location-wrapper {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
