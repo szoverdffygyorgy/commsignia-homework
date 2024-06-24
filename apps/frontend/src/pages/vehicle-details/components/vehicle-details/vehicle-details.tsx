@@ -1,6 +1,7 @@
 import VehicleLocationLink from "../../../../components/vehicle-location-link/vehicle-location-link";
 import VehicleLocation from "../../../../components/vehicle-location/vehicle-location";
 import { useVehicleDetailsContext } from "../../../../contexts/vehicle-details/vehicle-details-context";
+import MAPS_API_KEY from "../../../../utils/maps-api-key";
 import NotificationList from "../notification-list/notification-list";
 
 import "./vehicle-details.css";
@@ -34,7 +35,7 @@ const VehicleDetails = () => {
           loading="lazy"
           allowFullScreen
           referrerPolicy="no-referrer-when-downgrade"
-          src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyCrYpR2TD7JUxk3FhNBtCRvQ14U2Fh_r0k
+          src={`https://www.google.com/maps/embed/v1/place?key=${MAPS_API_KEY}
     &q=${query.data.latitude},${query.data.longitude}`}
         />
       </div>
